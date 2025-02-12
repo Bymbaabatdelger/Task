@@ -4,39 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    @vite('resources/css/app.css')
+    <title>Edit</title>
 </head>
-<body>
-    <h1>Edit a Product</h1>
-    <div>
-        @if($errors->any())
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{$error}}</li>
-            @endforeach
-        </ul>
-
-
-        @endif
-    </div>
-    <form method="post" action="{{route('product.update' , ['product' => $product])}}">
+<x-app-layout>
+<a class="m-10 font-bold" href="{{ route('product.index') }}"> < Back </a>
+<div class="flex flex-col justify-center items-center w-full h-screen bg-slate-100">
+    <h1 class="font-bold text-3xl mb-4">Edit a Product</h1>
+    <form class="border-2 rounded-xl p-4 w-[500px]"  method="post" action="{{route('product.update' , ['product' => $product])}}">
         @csrf 
         @method('put')
-        <div>
-            <label>Name</label>
-            <input type="text" name="name" placeholder="Name" value="{{$product->name}}" />
+        <div class="flex flex-col">
+            <label class="py-2 font-bold">Name</label>
+            <input class="p-2 rounded-xl"  type="text" name="name" placeholder="Name" value="{{$product->name}}" />
         </div>
-        <div>
-            <label>Price</label>
-            <input type="text" name="price" placeholder="Price" value="{{$product->price}}" />
+        <div class="flex flex-col">
+            <label class="py-2 font-bold">Price</label>
+            <input class="p-2 rounded-xl"  type="text" name="price" placeholder="Price" value="{{$product->price}}" />
         </div>
-        <div>
-            <label>Detail</label>
-            <input type="text" name="detail" placeholder="detail" value="{{$product->detail}}" />
+        <div class="flex flex-col">
+            <label class="py-2 font-bold">Detail</label>
+            <input class="p-2 rounded-xl"  type="text" name="detail" placeholder="detail" value="{{$product->detail}}" />
         </div>
-        <div>
-            <input type="submit" value="Update" />
+        <div class="flex justify-center bg-blue-300 border-2 p-2 mt-2 rounded-xl">
+            <input class="text-xl font-bold" type="submit" value="Update" />
         </div>
     </form>
-</body>
+</div>
+</x-app-layout>
 </html>
