@@ -6,7 +6,7 @@
                     {{ __("You're successfully logged in!") }}
                 </div>
 
-                <button class="p-4 bg-blue-200 border-2 font-bold text-xl underline"><a href="{{ route('product.index') }}"> Go to product page</a></button>
+                <button class="p-4 bg-blue-200 border-2 font-bold text-xl underline"><a href="{{ route('product.index') }}"> Navigate to product page</a></button>
             </div>
         </div>
         <div></div>
